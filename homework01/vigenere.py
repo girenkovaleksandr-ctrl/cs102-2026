@@ -5,15 +5,15 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     word2 = []
     for i in range(len(plaintext)):
         if word1[i].isalpha():
-            base = ord('A') if word1[i].isupper() else ord('a')
+            base = ord("A") if word1[i].isupper() else ord("a")
             if key[i % len(keyword)].isalpha():
-                base1 = ord('A') if key[i % len(keyword)].isupper() else ord('a')
+                base1 = ord("A") if key[i % len(keyword)].isupper() else ord("a")
                 word2.append(chr((ord(word1[i]) - base + ord(key[i % len(keyword)]) - base1) % 26 + base))
             else:
                 word2.append(word1[i])
         else:
             word2.append(word1[i])
-    ciphertext = ''.join(word2)
+    ciphertext = "".join(word2)
     return ciphertext
 
 
@@ -33,13 +33,13 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
     word2 = []
     for i in range(len(ciphertext)):
         if word1[i].isalpha():
-            base = ord('A') if word1[i].isupper() else ord('a')
+            base = ord("A") if word1[i].isupper() else ord("a")
             if key[i % len(keyword)].isalpha():
-                base1 = ord('A') if key[i % len(keyword)].isupper() else ord('a')
+                base1 = ord("A") if key[i % len(keyword)].isupper() else ord("a")
                 word2.append(chr((ord(word1[i]) - base - ord(key[i % len(keyword)]) + base1) % 26 + base))
             else:
                 word2.append(word1[i])
         else:
             word2.append(word1[i])
-    plaintext = ''.join(word2)
+    plaintext = "".join(word2)
     return plaintext
